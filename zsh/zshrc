@@ -1,0 +1,84 @@
+#
+# Variables
+# 
+
+export LC_ALL=de_DE.UTF-8
+
+export EDITOR=vim
+export GIT_EDITOR=vim
+
+# 
+# Aliases
+# 
+
+# neovim
+alias vi='nvim'
+alias vim='nvim'
+
+# Laravel
+alias a='php artisan'
+alias tinker='php artisan tinker'
+
+# Docker
+alias d='docker'
+alias dc='docker compose'
+
+# bat
+if [[ $(type bat 2>/dev/null) ]]; then
+  alias eza='eza --icons --header'
+  alias ls='eza'
+  
+  alias ll='eza -l --git'
+  alias la='eza -la --git'
+fi
+
+# Python on macOS
+if brew --prefix python > /dev/null; then
+  export PATH=$(brew --prefix python)/libexec/bin:$PATH
+fi
+
+# UNIX Tools
+if [[ -d /opt/homebrew/opt/coreutils/libexec/gnubin ]]; then
+  export PATH=/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH
+fi
+
+# GNU sed
+if [[ -d /opt/homebrew/opt/gnu-sed/libexec/gnubin ]]; then
+  export PATH=/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH
+fi
+
+# fnm
+if which fnm > /dev/null; then
+  eval "$(fnm env --use-on-cd)"
+fi
+
+# zoxide
+if which zoxide > /dev/null; then
+  eval "$(zoxide init zsh)"
+  alias cd='z'
+fi
+
+# Global composer
+if [[ -d $HOME/.composer ]]; then
+  export PATH=$HOME/.composer/vendor/bin:$PATH
+fi
+
+# Local binaries
+if [[ -d $HOME/.local/bin ]]; then
+  export PATH=$HOME/.local/bin:$PATH
+fi
+
+
+
+# Herd injected NVM configuration
+export NVM_DIR="/Users/tii/Library/Application Support/Herd/config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+[[ -f "/Applications/Herd.app/Contents/Resources/config/shell/zshrc.zsh" ]] && builtin source "/Applications/Herd.app/Contents/Resources/config/shell/zshrc.zsh"
+
+# Herd injected PHP 8.3 configuration.
+export HERD_PHP_83_INI_SCAN_DIR="/Users/tii/Library/Application Support/Herd/config/php/83/"
+
+
+# Herd injected PHP binary.
+export PATH="/Users/tii/Library/Application Support/Herd/bin/":$PATH
