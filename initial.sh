@@ -43,6 +43,12 @@ defaults write com.apple.finder "ShowExternalHardDrivesOnDesktop" -bool "false"
 # Don't show removable media on Desktop
 defaults write com.apple.finder "ShowRemovableMediaOnDesktop" -bool "false"
 
+# Open new windows in home folder
+defaults write com.apple.Finder NewWindowTarget -string "PfHm"
+
+# Set the default view style for folders without custom setting to list view
+defaults write com.apple.finder "FXPreferredViewStyle" -string "Nlsv"
+
 killall Finder
 
 ###
