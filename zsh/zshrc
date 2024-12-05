@@ -1,23 +1,24 @@
 #
 # Variables
-# 
-
+#
 export LC_ALL=de_DE.UTF-8
 
 export EDITOR=vim
 export GIT_EDITOR=vim
 
-# 
+#
 # Aliases
-# 
+#
 
 # neovim
 alias vi='nvim'
 alias vim='nvim'
 
 # Laravel
-alias a='php artisan'
+alias pa='php artisan'
 alias tinker='php artisan tinker'
+alias sail='vendor/bin/sail'
+alias dep='vendor/bin/dep'
 
 # Docker
 alias d='docker'
@@ -27,9 +28,14 @@ alias dc='docker compose'
 if [[ $(type bat 2>/dev/null) ]]; then
   alias eza='eza --icons --header'
   alias ls='eza'
-  
+
   alias ll='eza -l --git'
   alias la='eza -la --git'
+fi
+
+# postgres
+if [ -d /opt/homebrew/opt/postgresql@16/bin ]; then
+  export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
 fi
 
 # Python on macOS
@@ -67,18 +73,3 @@ fi
 if [[ -d $HOME/.local/bin ]]; then
   export PATH=$HOME/.local/bin:$PATH
 fi
-
-
-
-# Herd injected NVM configuration
-export NVM_DIR="/Users/tii/Library/Application Support/Herd/config/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-
-[[ -f "/Applications/Herd.app/Contents/Resources/config/shell/zshrc.zsh" ]] && builtin source "/Applications/Herd.app/Contents/Resources/config/shell/zshrc.zsh"
-
-# Herd injected PHP 8.3 configuration.
-export HERD_PHP_83_INI_SCAN_DIR="/Users/tii/Library/Application Support/Herd/config/php/83/"
-
-
-# Herd injected PHP binary.
-export PATH="/Users/tii/Library/Application Support/Herd/bin/":$PATH
