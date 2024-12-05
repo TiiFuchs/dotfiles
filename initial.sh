@@ -73,3 +73,12 @@ defaults write NSGlobalDomain com.apple.mouse.scaling -float "10"
 
 # Turn off the “Application Downloaded from Internet” quarantine warning.
 defaults write com.apple.LaunchServices "LSQuarantine" -bool "false"
+
+
+###
+### Game Controller
+###
+
+# Disable Home and Share buttons from doing anything in macOS
+defaults write com.apple.GameController bluetoothPrefsMenuLongPressAction -integer 0
+defaults write com.apple.GameController bluetoothPrefsShareLongPressSystemGestureMode -integer -1
