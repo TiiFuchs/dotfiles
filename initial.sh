@@ -74,6 +74,8 @@ defaults write NSGlobalDomain com.apple.mouse.scaling -float "10"
 # Turn off the “Application Downloaded from Internet” quarantine warning.
 defaults write com.apple.LaunchServices "LSQuarantine" -bool "false"
 
+# Disable scale to page on print dialog
+defaults write com.apple.Preview PVImagePrintingScaleMode -bool "false"
 
 ###
 ### Game Controller
