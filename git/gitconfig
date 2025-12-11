@@ -23,3 +23,5 @@
     colorMoved = default
 [gpg]
     program = /usr/local/MacGPG2/bin/gpg
+[includeIf "gitdir:~/work/"]
+    path = ~/work/.gitconfig
